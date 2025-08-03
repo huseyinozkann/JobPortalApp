@@ -23,22 +23,22 @@ public class Users {
     private boolean isActive;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date registirationDate;
+    private Date registrationDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userTypeId", referencedColumnName = "userTypeId")
-    private UsersType usersTypeId;
+    private UsersType userTypeId;
 
     public Users() {
     }
 
-    public Users(int userId, String email, String password, boolean isActive, Date registirationDate, UsersType usersTypeId) {
+    public Users(int userId, String email, String password, boolean isActive, Date registrationDate, UsersType userTypeId) {
         this.userId = userId;
         this.email = email;
         this.password = password;
         this.isActive = isActive;
-        this.registirationDate = registirationDate;
-        this.usersTypeId = usersTypeId;
+        this.registrationDate = registrationDate;
+        this.userTypeId = userTypeId;
     }
 
     public int getUserId() {
@@ -57,11 +57,11 @@ public class Users {
         this.email = email;
     }
 
-    public @NotEmpty String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(@NotEmpty String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -73,20 +73,20 @@ public class Users {
         isActive = active;
     }
 
-    public Date getRegistirationDate() {
-        return registirationDate;
+    public Date getRegistrationDate() {
+        return registrationDate;
     }
 
-    public void setRegistirationDate(Date registirationDate) {
-        this.registirationDate = registirationDate;
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
-    public UsersType getUsersTypeId() {
-        return usersTypeId;
+    public UsersType getUserTypeId() {
+        return userTypeId;
     }
 
-    public void setUsersTypeId(UsersType usersTypeId) {
-        this.usersTypeId = usersTypeId;
+    public void setUserTypeId(UsersType userTypeId) {
+        this.userTypeId = userTypeId;
     }
 
     @Override
@@ -96,8 +96,8 @@ public class Users {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", isActive=" + isActive +
-                ", registirationDate=" + registirationDate +
-                ", usersTypeId=" + usersTypeId +
+                ", registrationDate=" + registrationDate +
+                ", userTypeId=" + userTypeId +
                 '}';
     }
 }
